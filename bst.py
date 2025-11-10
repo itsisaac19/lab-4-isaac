@@ -30,16 +30,16 @@ class BinarySearchTree:
     tree: BinTree
 
 # Short alias for convenience
-BST : TypeAlias = BinarySearchTree
+bst : TypeAlias = BinarySearchTree
     
 # Returns True if 'BST' is empty, False otherwise.
-def is_empty(BST: BST) -> bool:
+def is_empty(BST: bst) -> bool:
     if BST.tree is None:
         return True
     return False
 
 # Insert 'value' into 'BST', returning the new BST.
-def insert(BST: BST, value: Value) -> BST:
+def insert(BST: bst, value: Value) -> bst:
     comes_before = BST.comes_before
     
     # Helper function to recursively insert the value
@@ -61,7 +61,7 @@ def insert(BST: BST, value: Value) -> BST:
     return BinarySearchTree(comes_before, insert_helper(BST.tree))
 
 # Returns True if 'value' is in 'BST', False otherwise.
-def lookup(BST: BST, value: Value) -> bool:
+def lookup(BST: bst, value: Value) -> bool:
     comes_before = BST.comes_before
 
     # Helper function to recursively search for the value
@@ -124,7 +124,7 @@ def delete_root(tree: BinTree) -> BinTree:
                 return Node(left_max, new_left_subtree, r)
 
 # Delete 'value' from 'BST' (if present)
-def delete(BST: BST, value: Value) -> BST:
+def delete(BST: bst, value: Value) -> bst:
     value_present = lookup(BST, value)
     
     if value_present is False:

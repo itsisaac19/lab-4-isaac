@@ -12,6 +12,17 @@ from bst import *
 
 TREES_PER_RUN : int = 10000
 
+
+def random_tree(n: int, comes_before: Comparator) -> bst:
+    """ Returns a random binary search tree with 'n' nodes,
+        using 'comes_before' as the comparator function.
+    """
+    tree : bst = BinarySearchTree(comes_before, None)
+    for _ in range(n):
+        value : int = random.randint(0, n * 10)
+        tree = insert(tree, value)
+    return tree
+
 def example_graph_creation() -> None:
     # Return log-base-2 of 'x' + 5.
     def f_to_graph( x : float ) -> float:
